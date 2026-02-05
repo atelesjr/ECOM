@@ -1,3 +1,5 @@
+'use client';
+
 import { PaymentFormInputs, paymentFormSchema } from '@/types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRight, ShoppingCart } from 'lucide-react';
