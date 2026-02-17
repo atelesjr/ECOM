@@ -9,9 +9,7 @@ export const shouldBeUser = createMiddleware<{
 	const { userId } = getAuth(c);
 
 	if (!userId) {
-		return c.json({
-			message: 'You are not logged in Payment service.',
-		});
+		return c.json({ message: 'You are not logged in Payment service.' }, 401);
 	}
 
 	c.set('userId', userId);
