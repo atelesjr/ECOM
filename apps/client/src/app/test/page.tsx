@@ -24,17 +24,17 @@ const TestPage = async () => {
 		console.error('Error fetching order endpoint:', error);
 	}
 
-	// try {
-	// 	const { getToken } = await auth();
-	// 	const token = await getToken();
-	// 	const resPayment = await fetch('http://localhost:8002/test', {
-	// 		headers: { Authorization: `Bearer ${token}` },
-	// 	});
-	// 	const dataPayment = await resPayment.json();
-	// 	console.log(dataPayment);
-	// } catch (error) {
-	// 	console.error('Error fetching payment endpoint:', error);
-	// }
+	try {
+		const { getToken } = await auth();
+		const token = await getToken();
+		const resPayment = await fetch('http://localhost:8002/test', {
+			headers: { Authorization: `Bearer ${token}` },
+		});
+		const dataPayment = await resPayment.json();
+		console.log(dataPayment);
+	} catch (error) {
+		console.error('Error fetching payment endpoint:', error);
+	}
 
 	return (
 		<div>
