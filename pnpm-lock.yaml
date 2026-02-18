@@ -246,6 +246,9 @@ importers:
       '@clerk/express':
         specifier: ^1.7.70
         version: 1.7.70(express@5.2.1)(react-dom@19.1.0(react@19.2.0))(react@19.2.0)
+      '@repo/product-db':
+        specifier: workspace:*
+        version: link:../../packages/product-db
       express:
         specifier: ^5.0.3
         version: 5.2.1
@@ -314,6 +317,9 @@ importers:
         specifier: ^8.18.0
         version: 8.18.0
     devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       '@types/node':
         specifier: ^25.2.3
         version: 25.2.3
