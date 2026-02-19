@@ -5,7 +5,8 @@
 	"scripts": {
 		"db:generate": "prisma generate",
 		"db:migrate": "prisma migrate dev --skip-generate",
-		"db:deploy": "prisma migrate deploy"
+		"db:deploy": "prisma migrate deploy",
+		"db:studio": "node --env-file=.env node_modules/prisma/build/index.js studio"
 	},
 	"devDependencies": {
 		"@types/node": "^25.2.3",

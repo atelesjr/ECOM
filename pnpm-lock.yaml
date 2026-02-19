@@ -249,6 +249,9 @@ importers:
       '@repo/product-db':
         specifier: workspace:*
         version: link:../../packages/product-db
+      dotenv:
+        specifier: ^17.3.1
+        version: 17.3.1
       express:
         specifier: ^5.0.3
         version: 5.2.1
