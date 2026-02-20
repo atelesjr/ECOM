@@ -1,0 +1,26 @@
+{
+	"name": "@repo/product-db",
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"db:generate": "prisma generate",
+		"db:migrate": "prisma migrate dev --skip-generate",
+		"db:deploy": "prisma migrate deploy",
+		"db:studio": "node --env-file=.env node_modules/prisma/build/index.js studio"
+	},
+	"devDependencies": {
+		"@types/node": "^25.2.3",
+		"@types/pg": "^8.16.0",
+		"prisma": "^7.4.0",
+		"@repo/typescript-config": "workspace:*"
+	},
+	"dependencies": {
+		"@prisma/adapter-pg": "^7.4.0",
+		"@prisma/client": "^7.4.0",
+		"dotenv": "^17.3.1",
+		"pg": "^8.18.0"
+	},
+	"exports": {
+		".": "./src/index.ts"
+	}
+}
