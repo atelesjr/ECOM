@@ -21,7 +21,6 @@
 	"devDependencies": {
 		"@repo/typescript-config": "workspace:*",
 		"@repo/types": "workspace:*",
-		"@types/cors": "^2.8.19",
 		"@types/node": "^20",
 		"tsx": "^4.21.0",
 		"typescript": "^5.9.3"

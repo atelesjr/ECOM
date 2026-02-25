@@ -15,7 +15,7 @@ const TestPage = async () => {
 	try {
 		const { getToken } = await auth();
 		const token = await getToken();
-		console.log('Token for Order Service:', token);
+
 		const resOrder = await fetch('http://localhost:8001/test', {
 			headers: { Authorization: `Bearer ${token}` },
 		});

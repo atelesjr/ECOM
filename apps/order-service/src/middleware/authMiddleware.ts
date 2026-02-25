@@ -15,9 +15,6 @@ export const shouldBeUser = async (
 ) => {
 	const { userId } = getAuth(request);
 
-	console.log('Authentication info from Clerk:', request.auth);
-	console.log('Authenticated user ID:', userId);
-
 	if (!userId) {
 		return response
 			.status(401)
@@ -36,9 +33,9 @@ export const shouldBeAdmin = async (
 		return reply.status(401).send({ message: 'You are not logged in!' });
 	}
 
-	const claims = auth.sessionClaims as CustomJwtSessionClaims;
+	const claims = auth.sessionClaims as CustomJwtSessionClaims | undefined;
 
-	if (claims.metadata?.role !== 'admin') {
+	if (claims?.metadata?.role !== 'admin') {
 		return reply.status(403).send({ message: 'Unauthorized!' });
 	}
 

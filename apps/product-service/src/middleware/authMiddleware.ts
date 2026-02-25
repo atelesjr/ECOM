@@ -39,9 +39,9 @@ export const shouldBeAdmin = (
 		return res.status(401).json({ message: 'You are not logged in!' });
 	}
 
-	const claims = auth.sessionClaims as CustomJwtSessionClaims;
+	const claims = auth.sessionClaims as CustomJwtSessionClaims | undefined;
 
-	if (claims.metadata?.role !== 'admin') {
+	if (claims?.metadata?.role !== 'admin') {
 		return res.status(403).send({ message: 'Unauthorized!' });
 	}
 

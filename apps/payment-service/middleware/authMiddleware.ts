@@ -22,21 +22,24 @@ export const shouldBeAdmin = createMiddleware<{
 		userId: string;
 	};
 }>(async (c, next) => {
-	const auth = getAuth(c);
+	const { userId, sessionClaims } = getAuth(c);
 
-	if (!auth?.userId) {
-		return c.json({
-			message: 'You are not logged in.',
-		});
+	if (!userId) {
+		return c.json(
+			{
+				message: 'You are not logged in.',
+			},
+			401,
+		);
 	}
 
-	const claims = auth.sessionClaims as CustomJwtSessionClaims;
+	const claims = sessionClaims as CustomJwtSessionClaims | undefined;
 
-	if (claims.metadata?.role !== 'admin') {
-		return c.json({ message: 'Unauthorized!' });
+	if (claims?.metadata?.role !== 'admin') {
+		return c.json({ message: 'Unauthorized!' }, 403);
 	}
 
-	c.set('userId', auth.userId);
+	c.set('userId', userId);
 
 	await next();
 });
