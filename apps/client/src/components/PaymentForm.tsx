@@ -1,6 +1,6 @@
 'use client';
 
-import { PaymentFormInputs, paymentFormSchema } from '@/types';
+import { PaymentFormInputs, paymentFormSchema } from '@/types-bkp';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRight, ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
