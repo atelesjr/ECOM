@@ -7,6 +7,7 @@ import { ArrowRight, Trash2 } from 'lucide-react';
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
+import StripePaymentForm from '@/components/StripePaymentForm';
 
 const steps = [
 	{
@@ -173,7 +174,7 @@ const CartPage = () => {
 					) : activeStep === 2 ? (
 						<ShippingForm setShippingForm={setShippingForm} />
 					) : activeStep === 3 && shippingForm ? (
-						'TODO: ADD STRIPEFORM'
+						<StripePaymentForm shippingForm={shippingForm} />
 					) : (
 						<p className="text-sm text-gray-500">
 							Please fill in the shipping form to continue.
