@@ -26,7 +26,7 @@ const products: ProductsType = [
 		updatedAt: new Date(),
 	},
 	{
-		id: 2,
+		id: 123,
 		name: 'Puma Ultra Warm Zip',
 		shortDescription:
 			'Lorem ipsum dolor sit amet consect adipisicing elit lorem ipsum dolor sit.',
@@ -152,9 +152,10 @@ const ProductList = ({
 			<Categories />
 			{params === 'products' && <Filter />}
 			<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-12">
-				{products.map((product) => (
-					<ProductCard key={product.id} product={product} />
-				))}
+				{products.map((product) => {
+					console.log('Rendering product:', product.id, product.name);
+					return <ProductCard key={product.id} product={product} />;
+				})}
 			</div>
 			<Link
 				href={category ? `/products/?category=${category}` : '/products'}

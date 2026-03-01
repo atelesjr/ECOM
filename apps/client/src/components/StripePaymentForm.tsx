@@ -11,6 +11,7 @@ import useCartStore from '@/stores/cartStore';
 const stripe = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 const fetchClientSecret = async (cart: CartItemsType, token: string) => {
+	console.log('Fetching client secret with cart:', cart);
 	return fetch(
 		`${process.env.NEXT_PUBLIC_PAYMENT_SERVICE_URL}/sessions/create-checkout-session`,
 		{
