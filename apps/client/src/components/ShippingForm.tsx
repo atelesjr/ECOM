@@ -1,6 +1,6 @@
 'use client';
 
-import { ShippingFormInputs, shippingFormSchema } from '@/types';
+import { ShippingFormInputs, shippingFormSchema } from '@repo/types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ArrowRight } from 'lucide-react';
 import { useRouter } from 'next/navigation';
@@ -40,6 +40,7 @@ const ShippingForm = ({
 					type="text"
 					id="name"
 					placeholder="John Doe"
+					value={'John Doe'}
 					{...register('name')}
 				/>
 				{errors.name && (
@@ -55,6 +56,7 @@ const ShippingForm = ({
 					type="email"
 					id="email"
 					placeholder="johndoe@gmail.com"
+					value={'johndoe@gmail.com'}
 					{...register('email')}
 				/>
 				{errors.email && (
@@ -70,6 +72,7 @@ const ShippingForm = ({
 					type="text"
 					id="phone"
 					placeholder="123456789"
+					value={'123456789'}
 					{...register('phone')}
 				/>
 				{errors.phone && (
@@ -85,6 +88,7 @@ const ShippingForm = ({
 					type="text"
 					id="address"
 					placeholder="123 Main St, Anytown"
+					value={'123 Main St, Anytown'}
 					{...register('address')}
 				/>
 				{errors.address && (
@@ -100,6 +104,7 @@ const ShippingForm = ({
 					type="text"
 					id="city"
 					placeholder="New York"
+					value={'New York'}
 					{...register('city')}
 				/>
 				{errors.city && (
