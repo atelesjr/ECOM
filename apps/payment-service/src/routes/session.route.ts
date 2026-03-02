@@ -25,18 +25,6 @@ sessionRoute.post('/create-checkout-session', shouldBeUser, async (c) => {
 			};
 		}),
 	);
-	// const lineItems = [
-	// 	{
-	// 		price_data: {
-	// 			currency: 'usd',
-	// 			product_data: {
-	// 				name: 'T-shirt',
-	// 			},
-	// 			unit_amount: 200,
-	// 		},
-	// 		quantity: 1,
-	// 	},
-	// ];
 
 	try {
 		const session = await stripe.checkout.sessions.create({
@@ -63,8 +51,6 @@ sessionRoute.get('/:session_id', async (c) => {
 			expand: ['line_items'],
 		},
 	);
-
-	// console.log(session);
 
 	return c.json({
 		status: session.status,

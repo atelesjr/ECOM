@@ -4,6 +4,7 @@ import { clerkMiddleware } from '@hono/clerk-auth';
 import { shouldBeUser } from './middleware/authMiddleware.js';
 import sessionRoute from './routes/session.route.js';
 import { cors } from 'hono/cors';
+import webhookRoute from './routes/webhooks.route.js';
 
 const app = new Hono();
 const CLIENT_URL = process.env.CLIENT_URL!;
@@ -20,6 +21,7 @@ app.get('/health', (c) => {
 });
 
 app.route('/sessions', sessionRoute);
+app.route('/webhooks', webhookRoute);
 
 app.get('/test', shouldBeUser, (c) => {
 	return c.json({
