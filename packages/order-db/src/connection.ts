@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 let isConnected = false;
 
-export const ConnectToOrderDB = async () => {
+export const connectToOrderDB = async () => {
 	if (isConnected) {
 		return;
 	}

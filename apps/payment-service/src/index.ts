@@ -5,6 +5,7 @@ import { shouldBeUser } from './middleware/authMiddleware.js';
 import sessionRoute from './routes/session.route.js';
 import { cors } from 'hono/cors';
 import webhookRoute from './routes/webhooks.route.js';
+import { consumer, producer } from './utils/kafka.js';
 
 const app = new Hono();
 const CLIENT_URL = process.env.CLIENT_URL!;
@@ -32,6 +33,7 @@ app.get('/test', shouldBeUser, (c) => {
 
 const start = async () => {
 	try {
+		Promise.all([await producer.connect(), await consumer.connect()]);
 		serve(
 			{
 				fetch: app.fetch,
