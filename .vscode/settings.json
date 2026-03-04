@@ -4,6 +4,6 @@
 			"mode": "auto"
 		}
 	],
-	"cSpell.words": ["autoincrement"],
+	"cSpell.words": ["autoincrement", "kafkajs"],
 	"postman.settings.dotenv-detection-notification-visibility": false
 }
